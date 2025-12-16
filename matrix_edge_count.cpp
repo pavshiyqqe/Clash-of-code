@@ -1,44 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Rent.cpp                                           :+:      :+:    :+:   */
+/*   matrix_edge_count.cpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yyaniv <yyaniv@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 14:52:24 by yyaniv            #+#    #+#             */
-/*   Updated: 2025/12/16 14:52:24 by yyaniv           ###   ########.fr       */
+/*   Created: 2025/12/16 14:52:11 by yyaniv            #+#    #+#             */
+/*   Updated: 2025/12/16 14:52:11 by yyaniv           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
 #include <vector>
-#include <algorithm>
-
 using namespace std;
-
-/**
- * Auto-generated code below aims at helping you parse
- * the standard input according to the problem statement.
- **/
 
 int main()
 {
-    int p;
-    cin >> p; cin.ignore();
-    int h;
-    cin >> h; cin.ignore();
-    int r;
-    cin >> r; cin.ignore();
+    int n;
+    cin >> n;
 
-    long sum = p*h;
-    if (sum > r)
-        cout << "YES";
-    else if (sum == r)
-        cout << "BARELY";
-    else
-        cout << "NO";
+    vector<vector<int>> a(n, vector<int>(n));
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> a[i][j];
+        }
+    }
+    int s = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i == 0 || i == n - 1 || j == 0 || j == n - 1) {
+                s+= a[i][j];
+            }
+        }
+    }
 
-
-
+    cout << s;
 }
